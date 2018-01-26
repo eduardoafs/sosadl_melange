@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="org.eclipse.sirius.componentization">
+    <component class="org.archware.sosadl.design.Activator"
+               id="org.archware.sosadl.design"
+	       name="sosadl">
+    </component>
+  </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="org.archware.sosadl.design.tools.CreateDuty"
+           id="org.archware.sosadl.design.tools.createDuty">
+     </javaActions>
+     <javaActions
+           actionClass="org.archware.sosadl.design.tools.CreateGate"
+           id="org.archware.sosadl.design.tools.createGate">
+     </javaActions>
+     <javaActions
+           actionClass="org.archware.sosadl.design.tools.DeleteElement"
+           id="org.archware.sosadl.design.tools.deleteElement">
+     </javaActions>
+     <javaActions
+           actionClass="org.archware.sosadl.design.tools.CreateUnify"
+           id="org.archware.sosadl.design.tools.createUnify">
+     </javaActions>
+     <javaActions
+           actionClass="org.archware.sosadl.design.tools.CreateElement"
+           id="org.archware.sosadl.design.tools.createElement">
+     </javaActions>
+  </extension>
+</plugin>

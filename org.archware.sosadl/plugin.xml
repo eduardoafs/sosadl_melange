@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www-archware.irisa.fr/sosadl/SosADL" 
+       class = "org.archware.sosadl.sosADL.SosADLPackage"
+       genModel = "model/generated/SosADL.genmodel" /> 
+	
+  </extension>
+
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Environment -->
+      <package
+            uri="http://www-archware.irisa.fr/sosadl/Environment"
+            class="environment.EnvironmentPackage"
+            genModel="model/Environment.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated TypeCheckerHelper -->
+      <package
+            uri="http://www-archware.irisa.fr/sosadl/TypeCheckerHelper"
+            class="org.archware.sosadl.tv.typeCheckerHelper.TypeCheckerHelperPackage"
+            genModel="model/TypeCheckerHelper.genmodel"/>
+   </extension>
+
+</plugin>

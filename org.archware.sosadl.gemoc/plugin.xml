@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.4"?><plugin>
+  <extension point="fr.inria.diverse.melange.modeltype">
+    <modeltype id="org.archware.sosadl.gemoc.BaseSosADLMT" uri="http://org.archware.sosadl.gemoc.basesosadlmt/">
+      <subtyping modeltypeId="org.archware.sosadl.gemoc.XSosadlMT"/>
+    </modeltype>
+    <modeltype id="org.archware.sosadl.gemoc.XSosadlMT" uri="http://org.archware.sosadl.gemoc.xsosadlmt/">
+      <subtyping modeltypeId="org.archware.sosadl.gemoc.BaseSosADLMT"/>
+    </modeltype>
+  </extension>
+  <extension point="fr.inria.diverse.melange.language">
+    <language aspects="" entryPoints="" exactType="org.archware.sosadl.gemoc.BaseSosADLMT" id="org.archware.sosadl.gemoc.BaseSosADL" uri="http://org.archware.sosadl.gemoc.basesosadl/sosADL/">
+      <adapter class="org.archware.sosadl.gemoc.basesosadl.adapters.basesosadlmt.BaseSosADLAdapter" modeltypeId="org.archware.sosadl.gemoc.BaseSosADLMT"/>
+      <adapter class="org.archware.sosadl.gemoc.basesosadl.adapters.xsosadlmt.BaseSosADLAdapter" modeltypeId="org.archware.sosadl.gemoc.XSosadlMT"/>
+    </language>
+    <language aspects="ArchitectureDecl:org.archware.sosadl.gemoc.xsosadl.aspects.ArchitectureDeclAspect" entryPoints="" exactType="org.archware.sosadl.gemoc.XSosadlMT" id="org.archware.sosadl.gemoc.XSosadl" uri="http://org.archware.sosadl.gemoc.xsosadl/sosADL/">
+      <adapter class="org.archware.sosadl.gemoc.xsosadl.adapters.basesosadlmt.XSosadlAdapter" modeltypeId="org.archware.sosadl.gemoc.BaseSosADLMT"/>
+      <adapter class="org.archware.sosadl.gemoc.xsosadl.adapters.xsosadlmt.XSosadlAdapter" modeltypeId="org.archware.sosadl.gemoc.XSosadlMT"/>
+    </language>
+  </extension>
+</plugin>

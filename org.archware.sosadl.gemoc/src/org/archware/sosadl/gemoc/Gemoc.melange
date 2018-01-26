@@ -1,0 +1,18 @@
+package org.archware.sosadl.gemoc
+
+import sosADL.aspects.ActionAspect
+import sosADL.aspects.ArchitectureDeclAspect
+
+language BaseSosADL {
+	syntax "platform:/resource/org.archware.sosadl/model/generated/SosADL.ecore"
+}
+
+language XSosadl inherits BaseSosADL {
+	// Melange generates an extended ecore in a language runtime project (org.archware.sosadl.gemoc.sosadl) 
+	// that copies everything needed for the  execution (abstract syntax and aspects), 	
+	// in the SingleLanguage approach, the editor and animator must be written using this generated ecore and not the original one.
+ 
+	
+//	with qualified.class.name
+	with ArchitectureDeclAspect
+}

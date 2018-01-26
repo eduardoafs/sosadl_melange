@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="typeCheckerHelper" nsURI="http://www-archware.irisa.fr/sosadl/TypeCheckerHelper"
+    nsPrefix="typeCheckerHelper">
+  <eClassifiers xsi:type="ecore:EClass" name="TypeVariable" eSuperTypes="generated/SosADL.ecore#//DataType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" ordered="false"
+        unique="false" upperBound="-1" eType="#//TypeVariable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="solver" lowerBound="1"
+        eType="#//Solver" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concernedObject" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concernedStructuralFeature"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Solver" instanceTypeName="java.util.function.BinaryOperator&lt;java.util.Optional&lt;org.archware.sosadl.sosADL.DataType>>"
+      serializable="false"/>
+</ecore:EPackage>

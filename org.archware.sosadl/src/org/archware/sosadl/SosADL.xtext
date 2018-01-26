@@ -1,0 +1,398 @@
+grammar org.archware.sosadl.SosADL with org.eclipse.xtext.common.Terminals
+
+generate sosADL 'http://www-archware.irisa.fr/sosadl/SosADL'
+
+SosADL: (imports+=Import)* content=(NewNamedLibrary | NewSoS)
+;
+
+Import: 'with' importedLibrary=Name
+;
+
+NewNamedLibrary returns Unit: {Library} 'library' name=Name 'is' '{' decls=EntityBlock '}'
+;
+
+NewSoS returns Unit: {SoS} 'sos' name=Name 'is' '{'
+  (decls=EntityBlock)
+  '}'
+;
+
+EntityBlock: {EntityBlock}
+	(datatypes+=DataTypeDecl)*
+	(functions+=FunctionDecl)*
+	(systems+=SystemDecl)*
+	(mediators+=MediatorDecl)*
+	(architectures+=ArchitectureDecl)*
+;
+
+SystemDecl: 'system' name=Name '(' (parameters+=FormalParameter (',' parameters+=FormalParameter)*)? ')' 'is' '{'
+	(datatypes+=DataTypeDecl)*
+	(gates+=GateDecl)+
+	behavior=BehaviorDecl
+	'}' ('guarantee' '{' assertions+=AssertionDecl+ '}')?
+;
+
+ArchitectureDecl: 'architecture' name=Name '(' (parameters+=FormalParameter (',' parameters+=FormalParameter)*)? ')' 'is' '{'
+	(datatypes+=DataTypeDecl)*
+	(gates+=GateDecl)+
+    behavior=ArchBehaviorDecl
+	'}' ('guarantee' '{' assertions+=AssertionDecl+ '}')?
+;
+
+MediatorDecl: 'mediator' name=Name '(' (parameters+=FormalParameter (',' parameters+=FormalParameter)*)? ')' 'is' '{'
+	(datatypes+=DataTypeDecl)*
+	(duties+=DutyDecl)+
+	behavior=BehaviorDecl
+	'}'
+	('assume' '{' assumptions+=AssertionDecl+ '}')?
+	('guarantee' '{' assertions+=AssertionDecl+ '}')?
+;
+
+GateDecl:
+	'gate' name=Name 'is' '{'
+	  (connections+=Connection)+
+	'}' 'guarantee' '{' protocols+=ProtocolDecl+ '}'
+;
+
+DutyDecl:
+	'duty' name=Name 'is' '{'
+	  (connections+=Connection)+
+	'}'
+	'assume' '{' assertions+=AssertionDecl+ '}'    // WAS: 'require' '{' assertion=AssertionDecl '}'
+	'guarantee' '{' protocols+=ProtocolDecl+ '}'   // WAS: 'assume' '{' protocol=ProtocolDecl '}'
+;
+
+Connection:
+	(environment?='environment')? 'connection' name=Name 'is' mode=ModeType '{' valueType=DataType '}'
+;
+
+AssertionDecl:
+	('property'|'protocol') name=Name 'is' body=Protocol
+;
+
+ProtocolDecl:
+    ('property'|'protocol') name=Name 'is' body=Protocol
+;
+
+Protocol:
+	'{' (statements+=ProtocolStatement)+ '}'
+;
+
+ProtocolStatement:
+	{ValuingProtocol} valuing=Valuing
+	| {AssertProtocol} assertion=Assert
+	| ProtocolAction
+	| {AnyAction} 'anyaction'
+	| {RepeatProtocol} 'repeat' repeated=Protocol
+	| {IfThenElseProtocol} 'if' condition=Expression 'then' ifTrue=Protocol ('else' ifFalse=Protocol)?
+	| {ChooseProtocol} 'choose' branches+=Protocol  ('or' branches+=Protocol)+
+	| {ForEachProtocol} 'foreach' variable=Name 'in' setOfValues=Expression repeated=Protocol
+	| {DoExprProtocol} 'do' expression=Expression
+	| {DoneProtocol} 'done'
+;
+
+ProtocolAction:
+	'via' complexName=ComplexName suite=ProtocolActionSuite
+;
+
+ProtocolActionSuite:
+	({SendProtocolAction} 'send' expression=FinalExpression)
+	| ('receive' ({ReceiveAnyProtocolAction} 'any'
+	   			 |{ReceiveProtocolAction} variable=Name))
+;
+
+BehaviorDecl:
+	'behavior' name=Name 'is' body=Behavior
+	// WAS: 'behavior' name=Name '(' (parameters+=FormalParameter (',' parameters+=FormalParameter)*)? ')' 'is' body=Behavior
+;
+
+Behavior:
+	'{' (statements+=BehaviorStatement)+ '}'
+;
+
+BehaviorStatement:
+	{ValuingBehavior} valuing=Valuing
+	| {AssertBehavior} assertion=Assert
+	| Action
+	| {RepeatBehavior} 'repeat' repeated=Behavior
+	| {IfThenElseBehavior} 'if' condition=Expression 'then' ifTrue=Behavior ('else' ifFalse=Behavior)?
+	| {ChooseBehavior} 'choose' branches+=Behavior  ('or' branches+=Behavior )+
+	| {ForEachBehavior} 'foreach' variable=Name 'in' setOfValues=Expression repeated=Behavior
+	| {DoExprBehavior} 'do' expression=Expression
+	| {DoneBehavior} 'done'
+	| {RecursiveCall} 'behavior' '(' (parameters+=Expression (',' parameters+=Expression)*)? ')'
+	| {UnobservableBehavior} 'unobservable'
+;
+
+Assert:
+	{TellAssertion} 'tell' name=Name 'is' '{' expression=Expression '}'
+	| {UntellAssertion} 'untell' name=Name
+	| {AskAssertion} 'ask' name=Name 'is' '{' expression=Expression '}'
+;
+
+Action:
+	'via' complexName=ComplexName suite=ActionSuite
+;
+
+ActionSuite:
+	{SendAction} 'send' expression=FinalExpression
+	| {ReceiveAction} 'receive' variable=Name
+;
+
+ArchBehaviorDecl:
+    // WAS: 'behavior' name=Name '(' (parameters+=Expression (',' parameters+=Expression)*)? ')'
+	'behavior' name=Name
+	'is' 'compose' '{' (constituents+=Constituent)+ '}'
+	'binding' '{' bindings=Expression '}' 
+;
+
+Constituent:
+	name=Name 'is' value=Expression
+;
+
+Binding returns Expression:
+	{Relay} 'relay' connLeft=ComplexName 'to' connRight=ComplexName
+	| {Unify} 'unify' multLeft=Multiplicity '{' connLeft=ComplexName '}' 'to' multRight=Multiplicity '{' connRight=ComplexName '}'
+	| {Quantify} quantifier=Quantifier '{' elements+=ElementInConstituent (',' elements+=ElementInConstituent)* 'suchthat' bindings=Expression '}'
+;
+
+enum Quantifier:
+	QuantifierForall='forall' | QuantifierExists='exists'
+;
+
+ElementInConstituent:
+	variable=Name 'in' constituent=Name
+;
+
+enum Multiplicity:
+	MultiplicityOne='one'
+	| MultiplicityNone='none'
+	| MultiplicityLone='lone'
+	| MultiplicityAny='any'
+	| MultiplicitySome='some'
+	| MultiplicityAll='all'
+;
+
+DataTypeDecl: 'datatype' name=Name ('is' datatype=DataType)? ('{' functions+=FunctionDecl+ '}')?;
+
+DataType:
+	BaseType
+	| ConstructedType
+	| {NamedType} name=Name  // name of another type
+;
+
+FunctionDecl:
+	'function' '(' data=FormalParameter ')' '::'
+	name=Name '(' (parameters+=FormalParameter (',' parameters+=FormalParameter)*)? ')' ':' type=DataType 'is' '{'
+	    (valuing+=Valuing)*
+		'return' expression=Expression
+	'}'
+;
+
+FormalParameter:
+	name=Name ':' type=DataType
+;
+
+BaseType returns DataType:
+	{IntegerType} 'integer'
+;
+
+ConstructedType returns DataType:
+	{TupleType} 'tuple' '{' fields+=FieldDecl (',' fields+=FieldDecl)* '}'
+	| {SequenceType} 'sequence' '{' type=DataType '}'
+	| {RangeType} 'integer' '{' vmin=Expression '..' vmax=Expression '}'  // range of Integer
+	| {ConnectionType} mode=ModeType '{' type=DataType '}'
+	;
+
+FieldDecl:
+	name=Name ':' type=DataType
+;
+
+enum ModeType:
+	ModeTypeIn='in' | ModeTypeOut='out' | ModeTypeInout='inout';
+
+Name: ID ;
+
+ComplexName:
+	name+=Name ('::' name+=Name)*
+;
+
+Valuing:
+	'value' name=Name (':' type=DataType)? '=' expression=Expression;
+
+Value returns Expression:
+	BaseValue
+	| ConstructedValue
+;
+
+BaseValue returns Expression:
+	IntegerValue
+	| {Any} 'any'
+;
+
+// IntegerValue is a natural integer (>=0). Use a UnaryExpression to get a negative value.
+IntegerValue:
+	absInt=INT // INT == ('0'..'9')+ rend une valeur ecore::EInt;
+;
+
+ConstructedValue returns Expression:
+	{Tuple} 'tuple' '{' elements+=TupleElement (',' elements+=TupleElement)* '}'
+	| {Sequence} 'sequence' '{' (elements+=Expression (',' elements+=Expression)*)? '}'
+;
+
+TupleElement:
+	label=Name '=' value=Expression
+;
+
+Expression:
+	BinaryExpression0
+;
+	
+BinaryExpression0 returns Expression:
+	BinaryExpression1 ({BinaryExpression.left=current} op=BinaryOp0 right=BinaryExpression0)?
+	;
+
+BinaryExpression1 returns Expression:
+	BinaryExpression2 ({BinaryExpression.left=current} op=BinaryOp1 right=BinaryExpression2)*
+	;
+
+BinaryExpression2 returns Expression:
+	BinaryExpression3 ({BinaryExpression.left=current} op=BinaryOp2 right=BinaryExpression3)*
+	;
+	
+BinaryExpression3 returns Expression:
+	BinaryExpression4 ({BinaryExpression.left=current} op=BinaryOp3 right=BinaryExpression4)*
+	;
+
+BinaryExpression4 returns Expression:
+	BinaryExpression5 ({BinaryExpression.left=current} op=BinaryOp4 right=BinaryExpression5)*
+	;
+
+BinaryExpression5 returns Expression:
+	BinaryExpression6 ({BinaryExpression.left=current} op=BinaryOp5 right=BinaryExpression6)*
+	;
+
+BinaryExpression6 returns Expression:
+	BinaryExpression7 ({BinaryExpression.left=current} op=BinaryOp6 right=BinaryExpression7)*
+	;
+
+BinaryExpression7 returns Expression:
+	FinalExpression ({BinaryExpression.left=current} op=BinaryOp7 right=FinalExpression)*
+	;
+
+FinalExpression returns Expression:
+	UnaryExpression
+	| CallExpression
+	| '(' Expression ')'
+	| Binding
+;
+
+UnaryExpression:
+	op=UnaryOp right=FinalExpression
+	;
+
+CallExpression returns Expression:
+	(
+		{IdentExpression} ident=Name
+		| {CallExpression} function=Name '(' (parameters+=Expression (',' parameters+=Expression)*)? ')'
+	    | LitteralExpression
+	)
+	
+	('::'
+		(
+			{Field.object=current} field=Name
+			| {Select.object=current} 'select' '{' variable=Name 'suchthat' condition=Expression '}'
+			// WAS: {Map.object=current} 'map' '{' variable=Name 'to' expression=Expression '}'
+			| {Map.object=current} 'collect' '{' variable=Name 'suchthat' expression=Expression '}'
+			| {MethodCall.object=current} method=Name '(' (parameters+=Expression (',' parameters+=Expression)*)? ')'
+		)
+	)*
+
+;
+
+LitteralExpression returns Expression:
+	Value
+;
+
+BinaryOp0:	'implies' ;
+
+BinaryOp1:	'or' ; 
+
+BinaryOp2:	'xor' ;
+
+BinaryOp3:	'and' ;
+
+BinaryOp4:	'=' | '<>' ;
+
+BinaryOp5:  '<' | '<=' | '>' | '>=' ;
+
+BinaryOp6:  '+' | '-' ;
+
+BinaryOp7:  '*' | '/' | 'mod' | 'div' ;
+
+UnaryOp:
+	BooleanUnaryOp
+	| ArithmeticUnaryOp
+;
+
+BooleanUnaryOp: 'not';
+
+ArithmeticUnaryOp:	'+' | '-';
+
+/*
+// Assertions are not used anymore
+
+Assertion:
+	BinaryAssertion0
+	| Action
+;
+
+BinaryAssertion0 returns Assertion:
+	BinaryAssertion1 ({BinaryAssertion.left=current} op=BinaryOp0 right=BinaryAssertion0)?
+	;
+
+BinaryAssertion1 returns Assertion:
+	BinaryAssertion2 ({BinaryAssertion.left=current} op=BinaryOp1 right=BinaryAssertion2)*
+	;
+
+BinaryAssertion2 returns Assertion:
+	BinaryAssertion3 ({BinaryAssertion.left=current} op=BinaryOp2 right=BinaryAssertion3)*
+	;
+	
+BinaryAssertion3 returns Assertion:
+	BinaryAssertion4 ({BinaryAssertion.left=current} op=BinaryOp3 right=BinaryAssertion4)*
+	;
+
+BinaryAssertion4 returns Assertion:
+	BinaryAssertion5 ({BinaryAssertion.left=current} op=BinaryOp4 right=BinaryAssertion5)*
+	;
+
+BinaryAssertion5 returns Assertion:
+	BinaryAssertion6 ({BinaryAssertion.left=current} op=BinaryOp5 right=BinaryAssertion6)*
+	;
+
+BinaryAssertion6 returns Assertion:
+	BinaryAssertion7 ({BinaryAssertion.left=current} op=BinaryOp6 right=BinaryAssertion7)*
+	;
+
+BinaryAssertion7 returns Assertion:
+	FinalAssertion ({BinaryAssertion.left=current} op=BinaryOp7 right=FinalAssertion)*
+	;
+
+UnaryAssertion:
+	op=UnaryOp right=FinalAssertion
+	;
+
+FinalAssertion returns Assertion:
+	UnaryAssertion
+	| CallExpression
+	| '(' Assertion ')'
+	| {Always} 'always' '{' expression=Assertion '}'
+	| {Anynext} 'anynext' '{' expression=Assertion '}'
+;
+*/
+
+HiddenBooleanType returns DataType:
+	{BooleanType}
+;
+
+// the end.

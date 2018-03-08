@@ -2,9 +2,9 @@
 <launchConfiguration type="org.eclipse.ui.externaltools.ProgramBuilderLaunchConfigurationType">
 <stringAttribute key="org.eclipse.debug.core.ATTR_REFRESH_SCOPE" value="${workspace}"/>
 <booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/>
-<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${workspace_loc:/org.archware.sosadl/compiler.bat}"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${workspace_loc:/org.archware.sosadl/compiler.sh}"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_RUN_BUILD_KINDS" value="full,incremental,"/>
-<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-classpath &quot;${project_classpath:/org.archware.sosadl}&quot; -d ${project_loc:/org.archware.sosadl}/bin -sourcepath ${resource_loc:/org.archware.sosadl/src}:${resource_loc:/org.archware.sosadl/src-emf}:${resource_loc:/org.archware.sosadl/src-gen}:${resource_loc:/org.archware.sosadl/xtend-gen}"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-d ${project_loc:/org.archware.sosadl}/bin -classpath ${project_classpath:/org.archware.sosadl} -sourcepath ${resource_loc:/org.archware.sosadl/src}:${resource_loc:/org.archware.sosadl/src-emf}:${resource_loc:/org.archware.sosadl/src-gen}:${resource_loc:/org.archware.sosadl/xtend-gen}"/>
 <booleanAttribute key="org.eclipse.ui.externaltools.ATTR_TRIGGERS_CONFIGURED" value="true"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${project_loc:/org.archware.sosadl}"/>
 </launchConfiguration>

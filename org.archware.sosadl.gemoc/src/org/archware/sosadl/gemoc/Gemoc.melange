@@ -1,9 +1,9 @@
 package org.archware.sosadl.gemoc
 
-import sosADL.aspects.ActionAspect
+//import sosADL.aspects.ActionAspect
 import sosADL.aspects.ArchitectureDeclAspect
 
-language BaseSosADL {
+external language BaseSosADL {
 	syntax "platform:/resource/org.archware.sosadl/model/generated/SosADL.ecore"
 }
 

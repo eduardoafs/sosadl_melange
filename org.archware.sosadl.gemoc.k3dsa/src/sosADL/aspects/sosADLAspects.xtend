@@ -6,21 +6,20 @@ import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.Step
 import java.util.LinkedList
 import java.util.List
+import java.util.Random
 import org.archware.sosadl.sosADL.ArchitectureDecl
 import org.archware.sosadl.sosADL.BinaryExpression
 import org.archware.sosadl.sosADL.Connection
 import org.archware.sosadl.sosADL.Constituent
-import org.archware.sosadl.sosADL.DutyDecl
 import org.archware.sosadl.sosADL.Expression
 import org.archware.sosadl.sosADL.GateDecl
 import org.archware.sosadl.sosADL.IdentExpression
 import org.archware.sosadl.sosADL.MediatorDecl
 import org.archware.sosadl.sosADL.SystemDecl
 import org.archware.sosadl.sosADL.Unify
-import org.archware.utils.ModelUtils
+import org.archware.sosadl.utils.ModelUtils
 import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.EObject
-import java.util.Random
 
 @Aspect(className=ArchitectureDecl)
 class ArchitectureDeclAspect {
@@ -36,7 +35,7 @@ class ArchitectureDeclAspect {
 
 		// try to execute component's behavior
 		for (Constituent c : _self.behavior.constituents) {
-			val EObject o = ModelUtils.resolve(c.value as IdentExpression)
+			val EObject o = ModelUtils.resolve_MelangeK3Dispatch(c.value as IdentExpression)
 			if (o instanceof SystemDecl) {
 				SystemDeclAspect.run(o)//, _self.context)
 			} else if (o instanceof MediatorDecl) {
@@ -82,8 +81,8 @@ class MediatorDeclAspect {
 @Aspect(className=Unify)
 class UnifyAspect extends ExpressionAspect {
 	public def void performAction() {
-		val Connection left = ModelUtils.resolve(_self.connLeft) as Connection
-		val Connection right = ModelUtils.resolve(_self.connRight) as Connection
+		val Connection left = ModelUtils.resolve_MelangeK3Dispatch(_self.connLeft) as Connection
+		val Connection right = ModelUtils.resolve_MelangeK3Dispatch(_self.connRight) as Connection
 		if (ConnectionAspect.unifiedConnections(left) === null)
 			ConnectionAspect.unifiedConnections(left, new LinkedList<Connection>())
 		if (ConnectionAspect.unifiedConnections(right) === null)

@@ -13,7 +13,7 @@ import org.archware.sosadl.sosADL.MediatorDecl;
 import org.archware.sosadl.sosADL.SosADL;
 import org.archware.sosadl.sosADL.SystemDecl;
 import org.archware.sosadl.sosADL.Unify;
-import org.archware.utils.ModelUtils;
+import org.archware.sosadl.utils.ModelUtils;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;

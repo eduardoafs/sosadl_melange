@@ -11,7 +11,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius,
  org.eclipse.sirius.common.acceleo.aql,
  org.eclipse.xtext.util,
- org.eclipse.sirius.diagram
+ org.eclipse.sirius.diagram,
+ org.archware.utils;bundle-version="1.0.0",
+ org.archware.sosadl,
+ org.archware.sosadl.utils;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %providerName
 Import-Package: org.archware.sosadl.sosADL,

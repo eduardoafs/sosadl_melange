@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?eclipse version="3.4"?><plugin>
-  <extension point="fr.inria.diverse.melange.modeltype">
-    <modeltype id="org.archware.sosadl.gemoc.BaseSosADLMT" uri="http://org.archware.sosadl.gemoc.basesosadlmt/">
-      <subtyping modeltypeId="org.archware.sosadl.gemoc.XSosadlMT"/>
-    </modeltype>
+  <extension point="org.eclipse.gemoc.gemoc_language_workbench.sequential.xdsml">
+    <XDSML_Definition modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.archware.sosadl.gemoc.XSosadl" xdsmlFilePath="/org.archware.sosadl.gemoc/src/org/archware/sosadl/gemoc/Gemoc.melange"/>
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated BaseSosADLMT -->
+    <package class="org.archware.sosadl.gemoc.basesosadlmt.sosADL.SosADLPackage" genModel="model-gen/BaseSosADLMT.genmodel" uri="http://org.archware.sosadl.gemoc.basesosadlmt/sosADL/"/>
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated XSosadlMT -->
+    <package class="org.archware.sosadl.gemoc.xsosadlmt.sosADL.SosADLPackage" genModel="model-gen/XSosadlMT.genmodel" uri="http://org.archware.sosadl.gemoc.xsosadlmt/sosADL/"/>
+  </extension>
+  
+<extension point="fr.inria.diverse.melange.modeltype">
+    <modeltype id="org.archware.sosadl.gemoc.BaseSosADLMT" uri="http://org.archware.sosadl.gemoc.basesosadlmt/"/>
     <modeltype id="org.archware.sosadl.gemoc.XSosadlMT" uri="http://org.archware.sosadl.gemoc.xsosadlmt/">
       <subtyping modeltypeId="org.archware.sosadl.gemoc.BaseSosADLMT"/>
     </modeltype>
   </extension>
   <extension point="fr.inria.diverse.melange.language">
-    <language aspects="" entryPoints="" exactType="org.archware.sosadl.gemoc.BaseSosADLMT" id="org.archware.sosadl.gemoc.BaseSosADL" uri="http://org.archware.sosadl.gemoc.basesosadl/sosADL/">
-      <adapter class="org.archware.sosadl.gemoc.basesosadl.adapters.basesosadlmt.BaseSosADLAdapter" modeltypeId="org.archware.sosadl.gemoc.BaseSosADLMT"/>
-      <adapter class="org.archware.sosadl.gemoc.basesosadl.adapters.xsosadlmt.BaseSosADLAdapter" modeltypeId="org.archware.sosadl.gemoc.XSosadlMT"/>
-    </language>
-    <language aspects="ArchitectureDecl:org.archware.sosadl.gemoc.xsosadl.aspects.ArchitectureDeclAspect" entryPoints="" exactType="org.archware.sosadl.gemoc.XSosadlMT" id="org.archware.sosadl.gemoc.XSosadl" uri="http://org.archware.sosadl.gemoc.xsosadl/sosADL/">
+    <language aspects="" entryPoints="" exactType="org.archware.sosadl.gemoc.BaseSosADLMT" id="org.archware.sosadl.gemoc.BaseSosADL" uri="http://www-archware.irisa.fr/sosadl/SosADL"/>
+    <language aspects="Unify:org.archware.sosadl.gemoc.xsosadl.aspects.UnifyAspect;BinaryExpression:org.archware.sosadl.gemoc.xsosadl.aspects.BinaryExpressionAspect;Expression:org.archware.sosadl.gemoc.xsosadl.aspects.ExpressionAspect;SystemDecl:org.archware.sosadl.gemoc.xsosadl.aspects.SystemDeclAspect;Connection:org.archware.sosadl.gemoc.xsosadl.aspects.ConnectionAspect;ArchitectureDecl:org.archware.sosadl.gemoc.xsosadl.aspects.ArchitectureDeclAspect;MediatorDecl:org.archware.sosadl.gemoc.xsosadl.aspects.MediatorDeclAspect" entryPoints="org.archware.sosadl.gemoc.xsosadl.aspects.ArchitectureDeclAspect.main(org.archware.sosadl.gemoc.xsosadl.sosADL.ArchitectureDecl)" exactType="org.archware.sosadl.gemoc.XSosadlMT" id="org.archware.sosadl.gemoc.XSosadl" uri="http://org.archware.sosadl.gemoc.xsosadl/sosADL/">
       <adapter class="org.archware.sosadl.gemoc.xsosadl.adapters.basesosadlmt.XSosadlAdapter" modeltypeId="org.archware.sosadl.gemoc.BaseSosADLMT"/>
       <adapter class="org.archware.sosadl.gemoc.xsosadl.adapters.xsosadlmt.XSosadlAdapter" modeltypeId="org.archware.sosadl.gemoc.XSosadlMT"/>
     </language>

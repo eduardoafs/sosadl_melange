@@ -36,8 +36,7 @@ Export-Package: org.archware.sosadl,
  org.archware.sosadl.tv.typeCheckerHelper,
  org.archware.sosadl.tv.typeCheckerHelper.impl,
  org.archware.sosadl.tv.typeCheckerHelper.util,
- org.archware.sosadl.validation,
- org.archware.utils
+ org.archware.sosadl.validation
 Import-Package: org.apache.log4j,
  org.eclipse.jface.viewers,
  org.eclipse.jface.wizard,

@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="ASCII"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.archware.sosadl.gemoc/src-gen" modelPluginID="org.archware.sosadl.gemoc" modelName="XSosadlMT" complianceLevel="7.0" copyrightFields="false">
+  <foreignModel>platform:/resource/org.archware.sosadl.gemoc/model-gen/XSosadlMT.ecore</foreignModel>
+  <genPackages prefix="SosADL" basePackage="org.archware.sosadl.gemoc.xsosadlmt" disposableProviderFactory="true">
+    <ecorePackage href="XSosadlMT.ecore#/"/>
+    <genEnums typeSafeEnumCompatible="false">
+      <ecoreEnum href="XSosadlMT.ecore#//Quantifier"/>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="XSosadlMT.ecore#//Quantifier/QuantifierForall"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="XSosadlMT.ecore#//Quantifier/QuantifierExists"/>
+      </genEnumLiterals>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false">
+      <ecoreEnum href="XSosadlMT.ecore#//Multiplicity"/>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="XSosadlMT.ecore#//Multiplicity/MultiplicityOne"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="XSosadlMT.ecore#//Multiplicity/MultiplicityNone"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="XSosadlMT.ecore#//Multiplicity/MultiplicityLone"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="XSosadlMT.ecore#//Multiplicity/MultiplicityAny"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="XSosadlMT.ecore#//Multiplicity/MultiplicitySome"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="XSosadlMT.ecore#//Multiplicity/MultiplicityAll"/>
+      </genEnumLiterals>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false">
+      <ecoreEnum href="XSosadlMT.ecore#//ModeType"/>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="XSosadlMT.ecore#//ModeType/ModeTypeIn"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="XSosadlMT.ecore#//ModeType/ModeTypeOut"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="XSosadlMT.ecore#//ModeType/ModeTypeInout"/>
+      </genEnumLiterals>
+    </genEnums>
+    <genDataTypes>
+      <ecoreDataType href="XSosadlMT.ecore#//Object"/>
+    </genDataTypes>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//SosADL"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//SosADL/imports"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//SosADL/content"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Import"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//Import/importedLibrary"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Unit"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//Unit/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Unit/decls"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//EntityBlock"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//EntityBlock/datatypes"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//EntityBlock/functions"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//EntityBlock/systems"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//EntityBlock/mediators"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//EntityBlock/architectures"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//SystemDecl"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//SystemDecl/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//SystemDecl/parameters"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//SystemDecl/datatypes"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//SystemDecl/gates"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//SystemDecl/behavior"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//SystemDecl/assertions"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XSosadlMT.ecore#//SystemDecl/run"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ArchitectureDecl"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//ArchitectureDecl/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ArchitectureDecl/parameters"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ArchitectureDecl/datatypes"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ArchitectureDecl/gates"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ArchitectureDecl/behavior"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ArchitectureDecl/assertions"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XSosadlMT.ecore#//ArchitectureDecl/main"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XSosadlMT.ecore#//ArchitectureDecl/init"/>
+        <genParameters>
+          <ecoreParameter href="XSosadlMT.ecore#//ArchitectureDecl/init/args"/>
+        </genParameters>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//MediatorDecl"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//MediatorDecl/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//MediatorDecl/parameters"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//MediatorDecl/datatypes"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//MediatorDecl/duties"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//MediatorDecl/behavior"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//MediatorDecl/assumptions"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//MediatorDecl/assertions"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XSosadlMT.ecore#//MediatorDecl/run"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//GateDecl"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//GateDecl/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//GateDecl/connections"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//GateDecl/protocols"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//DutyDecl"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//DutyDecl/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//DutyDecl/connections"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//DutyDecl/assertions"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//DutyDecl/protocols"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Connection"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//Connection/environment"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//Connection/name"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//Connection/mode"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Connection/valueType"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XSosadlMT.ecore#//Connection/propagateValue"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//AssertionDecl"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//AssertionDecl/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//AssertionDecl/body"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ProtocolDecl"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//ProtocolDecl/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ProtocolDecl/body"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Protocol"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Protocol/statements"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ProtocolStatement"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ProtocolAction"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ProtocolAction/complexName"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ProtocolAction/suite"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ProtocolActionSuite"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//BehaviorDecl"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//BehaviorDecl/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//BehaviorDecl/body"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Behavior"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Behavior/statements"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//BehaviorStatement"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Assert"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//Assert/name"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Action"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Action/complexName"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Action/suite"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ActionSuite"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ArchBehaviorDecl"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//ArchBehaviorDecl/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ArchBehaviorDecl/constituents"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ArchBehaviorDecl/bindings"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Constituent"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//Constituent/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Constituent/value"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Expression"/>
+      <genOperations>
+        <ecoreOperation href="XSosadlMT.ecore#//Expression/evaluate"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XSosadlMT.ecore#//Expression/performAction"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ElementInConstituent"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//ElementInConstituent/variable"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//ElementInConstituent/constituent"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//DataTypeDecl"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//DataTypeDecl/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//DataTypeDecl/datatype"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//DataTypeDecl/functions"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//DataType"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//FunctionDecl"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//FunctionDecl/data"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//FunctionDecl/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//FunctionDecl/parameters"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//FunctionDecl/type"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//FunctionDecl/valuing"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//FunctionDecl/expression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//FormalParameter"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//FormalParameter/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//FormalParameter/type"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//FieldDecl"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//FieldDecl/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//FieldDecl/type"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ComplexName"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//ComplexName/name"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Valuing"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//Valuing/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Valuing/type"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Valuing/expression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//IntegerValue"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//IntegerValue/absInt"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//TupleElement"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//TupleElement/label"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//TupleElement/value"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//UnaryExpression"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//UnaryExpression/op"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//UnaryExpression/right"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Library"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//SoS"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ValuingProtocol"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ValuingProtocol/valuing"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//AssertProtocol"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//AssertProtocol/assertion"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//AnyAction"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//RepeatProtocol"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//RepeatProtocol/repeated"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//IfThenElseProtocol"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//IfThenElseProtocol/condition"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//IfThenElseProtocol/ifTrue"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//IfThenElseProtocol/ifFalse"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ChooseProtocol"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ChooseProtocol/branches"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ForEachProtocol"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//ForEachProtocol/variable"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ForEachProtocol/setOfValues"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ForEachProtocol/repeated"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//DoExprProtocol"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//DoExprProtocol/expression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//DoneProtocol"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//SendProtocolAction"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//SendProtocolAction/expression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ReceiveAnyProtocolAction"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ReceiveProtocolAction"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//ReceiveProtocolAction/variable"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ValuingBehavior"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ValuingBehavior/valuing"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//AssertBehavior"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//AssertBehavior/assertion"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//RepeatBehavior"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//RepeatBehavior/repeated"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//IfThenElseBehavior"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//IfThenElseBehavior/condition"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//IfThenElseBehavior/ifTrue"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//IfThenElseBehavior/ifFalse"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ChooseBehavior"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ChooseBehavior/branches"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ForEachBehavior"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//ForEachBehavior/variable"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ForEachBehavior/setOfValues"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ForEachBehavior/repeated"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//DoExprBehavior"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//DoExprBehavior/expression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//DoneBehavior"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//RecursiveCall"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//RecursiveCall/parameters"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//UnobservableBehavior"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//TellAssertion"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//TellAssertion/expression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//UntellAssertion"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//AskAssertion"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//AskAssertion/expression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//SendAction"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//SendAction/expression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ReceiveAction"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//ReceiveAction/variable"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Relay"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Relay/connLeft"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Relay/connRight"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Unify"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//Unify/multLeft"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Unify/connLeft"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//Unify/multRight"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Unify/connRight"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XSosadlMT.ecore#//Unify/performAction"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Quantify"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//Quantify/quantifier"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Quantify/elements"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Quantify/bindings"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//NamedType"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//NamedType/name"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//IntegerType"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//TupleType"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//TupleType/fields"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//SequenceType"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//SequenceType/type"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//RangeType"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//RangeType/vmin"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//RangeType/vmax"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//ConnectionType"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//ConnectionType/mode"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//ConnectionType/type"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Any"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Tuple"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Tuple/elements"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Sequence"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Sequence/elements"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//BinaryExpression"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//BinaryExpression/left"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//BinaryExpression/op"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//BinaryExpression/right"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XSosadlMT.ecore#//BinaryExpression/performAction"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//IdentExpression"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//IdentExpression/ident"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//CallExpression"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//CallExpression/function"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//CallExpression/parameters"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Field"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Field/object"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//Field/field"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Select"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Select/object"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//Select/variable"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Select/condition"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//Map"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Map/object"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//Map/variable"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//Map/expression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//MethodCall"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//MethodCall/object"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSosadlMT.ecore#//MethodCall/method"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSosadlMT.ecore#//MethodCall/parameters"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSosadlMT.ecore#//BooleanType"/>
+    </genClasses>
+  </genPackages>
+  <usedGenPackages href="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"/>
+</genmodel:GenModel>
